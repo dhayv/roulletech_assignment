@@ -1,16 +1,12 @@
 import React from "react";
-import {NavBar} from "react-bootstrap";
-
-
+import { Navbar } from "react-bootstrap";
 
 const Navigation = () => {
-
     return (
-        <NavBar>
-            <h3>Kangaroo</h3>
-        </NavBar>
+        <Navbar bg="light" variant="light">
+            <Navbar.Brand href="#home">Kangaroo</Navbar.Brand>
+        </Navbar>
     )
 };
-
 
 export default Navigation;

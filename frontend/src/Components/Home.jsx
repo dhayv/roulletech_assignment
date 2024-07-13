@@ -1,11 +1,11 @@
 import React from "react";
 
-
 const Home = () => {
-
     return (
         <section>
-            <H1>Welcome to our Site!</H1>
+            <h1>Welcome to our Site!</h1>
         </section>
     )
-}
+};
+
+export default Home;

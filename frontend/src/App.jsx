@@ -1,27 +1,20 @@
-import { useState, Lazy } from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header';
 import Navigation from './Components/NavBar';
+import Home from './Components/Home';
 
-
-
-App = () => {
-  
-
+const App = () => {
   return (
     <BrowserRouter>
-      <Header/>
-      <Navigation/>
+      <Header />
+      <Navigation />
       <Routes>
-        <Route path='/' element/>
-
+        <Route path='/' element={<Home />} />
       </Routes>
-    
-    
     </BrowserRouter>
-  )
-   
-}
+  );
+};
 
-export default App
+export default App;
