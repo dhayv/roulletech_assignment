@@ -18,14 +18,14 @@ class RecipeList(APIView):
     def get(self, request):
         category = request.query_params.get('category')
         if not category:
-            return Response({'error': "No category found"}, status="404")
+            return Response({'error': "No category found"}, status=404)
         response = requests.get(f'https://www.themealdb.com/api/json/v1/1/filter.php?c={category}')
         data = response.json()
         return Response(data)
 
 
 # fetch and return recipe details information.
-class RecipeLDetail(APIView):
+class RecipeDetail(APIView):
     def get(self, request, recipe_id):
         response = requests.get(f'https://www.themealdb.com/api/json/v1/1/lookup.php?i={recipe_id}')
         data = response.json()
