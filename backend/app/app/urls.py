@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from ..recipes.views import CategoryList, RecipeLDetail, RecipeList
+from recipes.views import CategoryList, RecipeLDetail, RecipeList
 
 urlpatterns = [
     path("categories/", CategoryList.as_view(), name="category-list"),
