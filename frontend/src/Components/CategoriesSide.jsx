@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import api from '../api.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { GlobalContext } from "../Context/GlobalContext.jsx";
 
 
 const Categories = () => {
 
-    const [] = useState(),
+    const {categories, setCategories} = useContext(GlobalContext),
 
     useEffect = (() => {
         api.get(`api/categories`)
-        .then(response => 
-
-        )
-        .catch(error => console.error())
-    })
+        .then(response => setCategories(response.data.categories))
+        .catch(error => console.error("Error fetching categories:", error))
+    }, []);
 
     return(
         <div>Hello World</div>
