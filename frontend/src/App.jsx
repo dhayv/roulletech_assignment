@@ -4,16 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header';
 import Navigation from './Components/NavBar';
 import Home from './Components/Home';
+import { GlobalProvider } from './Context/GlobalContext';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
       <Header />
       <Navigation />
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </GlobalProvider>
   );
 };
 
