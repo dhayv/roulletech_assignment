@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 
 
 # Create your views here.
+# fetch and return categories.
 class CategoryList(APIView):
     def get(self, request):
         response = requests.get('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -12,6 +13,7 @@ class CategoryList(APIView):
         return Response(data)
 
 
+# fetch and return recipes by categories.
 class RecipeList(APIView):
     def get(self, request):
         category = request.query_params.get('category')
@@ -22,6 +24,7 @@ class RecipeList(APIView):
         return Response(data)
 
 
+# fetch and return recipe details information.
 class RecipeLDetail(APIView):
     def get(self, request, recipe_id):
         response = requests.get(f'https://www.themealdb.com/api/json/v1/1/lookup.php?i={recipe_id}')
