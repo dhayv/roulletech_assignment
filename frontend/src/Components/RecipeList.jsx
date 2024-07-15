@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeList = () => {
 
-    const [] = useState('');
+    const [] = useState(''),
 
     useEffect = (() => {
         api.get(`api/recipes/${categories}`)

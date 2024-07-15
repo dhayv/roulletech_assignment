@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import api from '../api.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Categories = () => {
 
-    const [] = useState():
-
+    const [] = useState(),
 
     useEffect = (() => {
-        api.get('api/categories')
+        api.get(`api/categories`)
         .then(response => 
-            
+
         )
         .catch(error => console.error())
     })

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const recipeDetails = () => {
 
+    const [] = useState(''),
 
     useEffect = (() => {
         api.get(`api/recipes/${recipe_id}`)
