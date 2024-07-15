@@ -3,7 +3,7 @@ import React, {createContext, useState} from "react";
 
 export const GlobalContext = createContext()
 
-export const GlobalProvider = ({children}) => {
+export const GlobalProvider = ({ children }) => {
 
     const [categories, setCategories] = useState("");
     const [recipes, setRecipesList] = useState("");
@@ -16,12 +16,12 @@ export const GlobalProvider = ({children}) => {
         recipes,
         setRecipesList,
         recipeDetails,
-        setRecipeDetails
-    }
+        setRecipeDetails,
+    };
 
     return(
         <GlobalContext.Provider value={contextValues}>
             {children}
         </GlobalContext.Provider>
-    )
-}
+    );
+};
