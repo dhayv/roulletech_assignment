@@ -1,32 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
-import api from '../api.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { GlobalContext } from "../Context/GlobalContext.jsx";
-import { MDBCol, MDBListGroup, MDBListGroupItem, MDBRow, MDBTabs, MDBTabsContent, MDBTabsItem, MDBTabsLink, MDBTabsPane } from 'mdb-react-ui-kit';
+import React, { useContext, useEffect, useState } from 'react'
+import api from '../api.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { GlobalContext } from '../Context/GlobalContext.jsx'
+import { MDBCol, MDBListGroup, MDBListGroupItem, MDBRow, MDBTabs, MDBTabsContent, MDBTabsItem, MDBTabsLink, MDBTabsPane } from 'mdb-react-ui-kit'
 
 const Categories = () => {
-  const { categories, setCategories } = useContext(GlobalContext);
-  const [basicActive, setBasicActive] = useState('');
+  const { categories, setCategories } = useContext(GlobalContext)
+  const [basicActive, setBasicActive] = useState('')
 
   useEffect(() => {
     api.get('api/recipes/categories')
       .then(response => {
-        const categoriesData = response.data.categories;
-        setCategories(categoriesData);
+        const categoriesData = response.data.categories
+        setCategories(categoriesData)
         console.log(categoriesData)
-        setBasicActive(categoriesData[0].strCategory); 
+        setBasicActive(categoriesData[0].strCategory)
       })
-      .catch(error => console.error("Error fetching categories:", error));
-  }, [setCategories]);
+      .catch(error => console.error('Error fetching categories:', error))
+  }, [setCategories])
 
   const handleBasicClick = (category) => {
     if (basicActive !== category) {
-      setBasicActive(category);
+      setBasicActive(category)
     }
-  };
+  }
 
   if (!Array.isArray(categories)) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
@@ -37,11 +37,12 @@ const Categories = () => {
           <MDBListGroup light small>
             <MDBTabs>
               {categories.map(category => (
-                <MDBListGroupItem 
+                <MDBListGroupItem
                   key={category.idCategory}
                   action
                   active={basicActive === category.strCategory}
-                  className="px-3" >
+                  className='px-3'
+                >
                   <MDBTabsItem>
                     <MDBTabsLink onClick={() => handleBasicClick(category.strCategory)}>
                       {category.strCategory}
@@ -64,7 +65,7 @@ const Categories = () => {
         </MDBCol>
       </MDBRow>
     </div>
-  );
+  )
 }
 
-export default Categories;
+export default Categories
