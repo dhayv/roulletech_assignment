@@ -9,7 +9,7 @@ const Categories = () => {
   const [basicActive, setBasicActive] = useState('');
 
   useEffect(() => {
-    api.get('api/categories')
+    api.get('api/recipes/categories')
       .then(response => {
         const categoriesData = response.data.categories;
         setCategories(categoriesData);
