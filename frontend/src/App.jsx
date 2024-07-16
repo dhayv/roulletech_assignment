@@ -7,6 +7,7 @@ import Header from './Components/Header';
 import Navigation from './Components/NavBar';
 import Home from './Components/Home';
 import { GlobalProvider } from './Context/GlobalContext';
+import Categories from './Components/CategoriesSide';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
+      <Categories/>
       </BrowserRouter>
     </GlobalProvider>
   );

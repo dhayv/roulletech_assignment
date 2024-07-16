@@ -5,7 +5,7 @@ export const GlobalContext = createContext()
 
 export const GlobalProvider = ({ children }) => {
 
-    const [categories, setCategories] = useState("");
+    const [categories, setCategories] = useState([]);
     const [recipes, setRecipesList] = useState("");
     const [recipeDetails, setRecipeDetails] = useState("");
 
