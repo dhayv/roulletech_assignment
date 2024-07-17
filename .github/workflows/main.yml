@@ -29,5 +29,18 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/myapp:latest
 
+  deploy: 
+    needs: build
+    runs-on: aws-ec2
+    steps: 
+      - name: Pull image from Docker Hub
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+      - name: Delete old Container
+        run: docker rm -f backend-container
+      - name: Run docker container
+        run: sudo systemctl restart backend.service
+
+
+
 
       
