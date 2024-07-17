@@ -28,6 +28,15 @@ jobs:
           context: backend/app
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/myapp:latest
-        
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_ADDRESS}} 'sudo systemctl restart backend.service'
+
 
       
