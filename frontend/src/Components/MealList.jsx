@@ -1,48 +1,56 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalContext } from '../Context/GlobalContext';
-import { MDBCol, MDBCardImage, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBRow } from 'mdb-react-ui-kit';
+import { Row, Col, Card, Button, Container } from 'react-bootstrap';
 
 const MealList = () => {
-  const { meals, setMeals, categoryView } = useContext(GlobalContext);
+  const { meals, setMeals, categoryView, setRecipeId } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (categoryView) {
       api.get(`api/recipes?category=${categoryView}`)
-        .then(response => setMeals(response.data.meals))
+        .then(response => {
+          setMeals(response.data.meals);
+        })
         .catch(error => console.error('Error fetching meals:', error));
     }
   }, [categoryView, setMeals]);
 
+  const handleBasicClick = (meal) => {
+    setRecipeId(meal.idMeal); 
+    navigate(`/recipe/${meal.idMeal}`);
+  };
+
   return (
-    <div>
-      <h6 className="bg-light p-2 border-top border-bottom">Recipes</h6>
-      <MDBRow>
+    <Container>
+      <Row>
         {meals.length > 0 ? (
           meals.map(meal => (
-            <MDBCol md="4" key={meal.idMeal} className="mb-3">
-              <MDBCard>
-                <MDBCardImage 
+            <Col md={4} key={meal.idMeal} className="mb-3">
+              <Card>
+                <Card.Img 
+                  variant="top" 
                   src={meal.strMealThumb} 
                   className="img-thumbnail" 
-                  style={{ objectFit: 'cover', height: '200px', width: '100%' }}
+                  style={{ objectFit: 'cover', height: '200px' }}
                 />
-                <MDBCardBody>
-                  <MDBCardTitle>{meal.strMeal}</MDBCardTitle>
-                  <MDBCardText className="text-truncate" style={{ maxHeight: '3.6em' }}>
+                <Card.Body>
+                  <Card.Title>{meal.strMeal}</Card.Title>
+                  <Card.Text className="text-truncate" style={{ maxHeight: '3.6em' }}>
                     {meal.strInstructions}
-                  </MDBCardText>
-                  <MDBBtn>View Recipe</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
+                  </Card.Text>
+                  <Button onClick={() => handleBasicClick(meal)}>View Recipe</Button>
+                </Card.Body>
+              </Card>
+            </Col>
           ))
         ) : (
           <p>No recipes available for this category.</p>
         )}
-      </MDBRow>
-    </div>
+      </Row>
+    </Container>
   );
 };
 

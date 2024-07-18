@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import CategoryMenu from './CategoriesSide';
+import MealList from './MealList';
 
 const Home = () => {
   return (
-    <div className='container'>
-      <h1>Welcome to our Site!</h1>
-    </div>
-  )
-}
+    <>
+        <CategoryMenu />
+        <MealList />
+    </>
 
-export default Home
+
+  );
+};
+
+export default Home;

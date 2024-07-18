@@ -5,7 +5,7 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
-  const [recipeDetails, setRecipeDetails] = useState('');
+  const [recipeId, setRecipeId] = useState(null);
   const [categoryView, setCategoryView] = useState('');
 
   const contextValues = {
@@ -13,8 +13,8 @@ export const GlobalProvider = ({ children }) => {
     setCategories,
     meals,
     setMeals,
-    recipeDetails,
-    setRecipeDetails,
+    recipeId,
+    setRecipeId,
     categoryView, 
     setCategoryView,
   }

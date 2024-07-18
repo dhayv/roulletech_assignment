@@ -1,14 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import api from '../api';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalContext } from '../Context/GlobalContext';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavItem from 'react-bootstrap/NavItem';
-import NavLink from 'react-bootstrap/NavLink';
-import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
+import '../App.css';  
 
 const CategoryMenu = () => {
   const { categories, setCategories, setCategoryView } = useContext(GlobalContext);
@@ -37,29 +31,23 @@ const CategoryMenu = () => {
   }
 
   return (
-    <Navbar expand="lg" bg="light" variant="light" sticky="top">
+    <Navbar collapseOnSelect sticky="top"  expand="lg" bg="white" variant="light" className="my-3">
       <Container>
-        <NavbarToggle 
-          aria-controls="category-navbar-nav" 
-          style={{ borderColor: 'transparent' }}
-          className="custom-toggler"
-        />
-        <NavbarCollapse id="category-navbar-nav">
-          <Nav className="me-auto justify-content-center w-100">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="custom-toggler" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mx-auto justify-content-center w-100">
             {categories.map(category => (
-              <NavItem key={category.idCategory}>
-                <NavLink
-                  onClick={() => handleBasicClick(category.strCategory)}
-                  active={basicActive === category.strCategory}
-                  className={basicActive === category.strCategory ? 'active' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {category.strCategory}
-                </NavLink>
-              </NavItem>
+              <Nav.Link
+                key={category.idCategory}
+                onClick={() => handleBasicClick(category.strCategory)}
+                className={basicActive === category.strCategory ? 'active' : ''}
+                style={{ cursor: 'pointer', padding: '0.5rem 1rem', display: 'inline-block', whiteSpace: 'nowrap' }}
+              >
+                {category.strCategory}
+              </Nav.Link>
             ))}
           </Nav>
-        </NavbarCollapse>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
