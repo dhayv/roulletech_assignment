@@ -10,7 +10,6 @@ import Footer from './Components/Footer'
 import Navigation from './Components/NavBar'
 import Home from './Components/Home'
 import { GlobalProvider } from './Context/GlobalContext'
-import CategoryMenu from './Components/CategoriesSide'
 import MealList from './Components/MealList'
 import RecipeDetails from './Components/RecipeDetail'
 
