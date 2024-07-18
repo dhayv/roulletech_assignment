@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react'
 
-export const GlobalContext = createContext()
+export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [categories, setCategories] = useState([])
-  const [meals, setMeals] = useState([])
-  const [recipeDetails, setRecipeDetails] = useState('')
-  const [categoryView, setcategoryView] = useState('')
+  const [categories, setCategories] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [recipeDetails, setRecipeDetails] = useState('');
+  const [categoryView, setCategoryView] = useState('');
 
   const contextValues = {
     categories,
@@ -15,8 +15,8 @@ export const GlobalProvider = ({ children }) => {
     setMeals,
     recipeDetails,
     setRecipeDetails,
-    categoryView,
-    setcategoryView
+    categoryView, 
+    setCategoryView,
   }
 
   return (
