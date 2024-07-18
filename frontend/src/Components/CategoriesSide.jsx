@@ -1,27 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react'
-import api from '../api.js'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { GlobalContext } from '../Context/GlobalContext.jsx'
-import { MDBCol, MDBListGroup, MDBListGroupItem, MDBRow, MDBTabs, MDBTabsContent, MDBTabsItem, MDBTabsLink, MDBTabsPane } from 'mdb-react-ui-kit'
+import { Container, Navbar, Nav } from 'react-bootstrap'
+import api from '../api'
+import { GlobalContext } from '../Context/GlobalContext'
+import '../App.css'
 
-const Categories = () => {
-  const { categories, setCategories } = useContext(GlobalContext)
+const CategoryMenu = () => {
+  const { categories, setCategories, setCategoryView } = useContext(GlobalContext)
   const [basicActive, setBasicActive] = useState('')
 
   useEffect(() => {
-    api.get('api/recipes/categories')
+    api.get('api/categories')
       .then(response => {
         const categoriesData = response.data.categories
         setCategories(categoriesData)
-        console.log(categoriesData)
         setBasicActive(categoriesData[0].strCategory)
+        setCategoryView(categoriesData[0].strCategory)
       })
       .catch(error => console.error('Error fetching categories:', error))
-  }, [setCategories])
+  }, [setCategories, setCategoryView])
 
   const handleBasicClick = (category) => {
     if (basicActive !== category) {
       setBasicActive(category)
+      setCategoryView(category)
     }
   }
 
@@ -30,42 +31,26 @@ const Categories = () => {
   }
 
   return (
-    <div>
-      <h6 className='bg-light p-2 border-top border-bottom'>Categories</h6>
-      <MDBRow>
-        <MDBCol size={4}>
-          <MDBListGroup light small>
-            <MDBTabs>
-              {categories.map(category => (
-                <MDBListGroupItem
-                  key={category.idCategory}
-                  action
-                  active={basicActive === category.strCategory}
-                  className='px-3'
-                >
-                  <MDBTabsItem>
-                    <MDBTabsLink onClick={() => handleBasicClick(category.strCategory)}>
-                      {category.strCategory}
-                    </MDBTabsLink>
-                  </MDBTabsItem>
-                </MDBListGroupItem>
-              ))}
-            </MDBTabs>
-          </MDBListGroup>
-        </MDBCol>
-
-        <MDBCol size={8}>
-          <MDBTabsContent>
+    <Navbar collapseOnSelect sticky='top' expand='lg' bg='white' variant='light' className='my-3'>
+      <Container>
+        <Navbar.Toggle aria-controls='responsive-navbar-nav' className='custom-toggler' />
+        <Navbar.Collapse id='responsive-navbar-nav'>
+          <Nav className='mx-auto justify-content-center w-100'>
             {categories.map(category => (
-              <MDBTabsPane key={category.id} show={basicActive === category.strCategory}>
-                {category.strCategoryDescription}
-              </MDBTabsPane>
+              <Nav.Link
+                key={category.idCategory}
+                onClick={() => handleBasicClick(category.strCategory)}
+                className={basicActive === category.strCategory ? 'active' : ''}
+                style={{ cursor: 'pointer', padding: '0.5rem 1rem', display: 'inline-block', whiteSpace: 'nowrap' }}
+              >
+                {category.strCategory}
+              </Nav.Link>
             ))}
-          </MDBTabsContent>
-        </MDBCol>
-      </MDBRow>
-    </div>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 
-export default Categories
+export default CategoryMenu

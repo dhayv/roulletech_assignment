@@ -1,10 +1,17 @@
 import React from 'react'
+import CategoryMenu from './CategoriesSide'
+import MealList from './MealList'
+import WelcomeMessage from './WelcomeMessage'
 
 const Home = () => {
   return (
-    <section>
-      <h1>Welcome to our Site!</h1>
-    </section>
+    <>
+      <CategoryMenu />
+      <WelcomeMessage/>
+      <MealList />
+
+    </>
+
   )
 }
 
