@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import './App.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import './App.css'
 
 import Footer from './Components/Footer'
 import Navigation from './Components/NavBar'
@@ -18,16 +18,16 @@ const App = () => {
   return (
     <GlobalProvider>
       <BrowserRouter>
-      <div className='container'>
-        <Navigation />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path="/meals" element={<MealList />} />
-          <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
-        </Routes>
-        
+        <div className='container'>
+          <Navigation />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/meals' element={<MealList />} />
+            <Route path='/recipe/:recipeId' element={<RecipeDetails />} />
+          </Routes>
+
           <Footer />
-          </div>
+        </div>
       </BrowserRouter>
     </GlobalProvider>
   )

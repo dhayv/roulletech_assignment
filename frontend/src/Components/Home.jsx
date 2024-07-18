@@ -1,16 +1,15 @@
-import React from 'react';
-import CategoryMenu from './CategoriesSide';
-import MealList from './MealList';
+import React from 'react'
+import CategoryMenu from './CategoriesSide'
+import MealList from './MealList'
 
 const Home = () => {
   return (
     <>
-        <CategoryMenu />
-        <MealList />
+      <CategoryMenu />
+      <MealList />
     </>
 
+  )
+}
 
-  );
-};
-
-export default Home;
+export default Home
