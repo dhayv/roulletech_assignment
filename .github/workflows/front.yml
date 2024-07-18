@@ -27,12 +27,12 @@ jobs:
         
       - name: Install dependencies
         run: |
-          cd /frontend
+          cd ./frontend
           npm install
 
       - name: Build the frontend
         run: |
-          cd /frontend
+          cd ./frontend
           npm run build
 
       - name: Configure AWS credentials
@@ -44,4 +44,4 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          roulletech_assignment/frontend/dist/ s3://$AWS_S3_BUCKET --region $AWS_REGION --delete
+          ./frontend/dist/ s3://$AWS_S3_BUCKET --region $AWS_REGION --delete
