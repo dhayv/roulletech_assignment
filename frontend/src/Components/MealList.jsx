@@ -5,26 +5,24 @@ import { GlobalContext } from '../Context/GlobalContext'
 import { MDBCol, MDBListGroup, MDBListGroupItem, MDBRow, MDBTabs, MDBTabsContent, MDBTabsItem, MDBTabsLink, MDBTabsPane } from 'mdb-react-ui-kit'
 
 const MealList = () => {
-  const { meals, setMeals, categoryView } = useContext(GlobalContext);
+  const { meals, setMeals, categoryView } = useContext(GlobalContext)
 
   useEffect(() => {
     if (categoryView) {
-    api.get(`api/recipes/${categoryView}`)
-      .then(response => setMeals(response.data.meals))
-      .catch(error => console.error('Error fetching meals:', error))
+      api.get(`api/recipes/${categoryView}`)
+        .then(response => setMeals(response.data.meals))
+        .catch(error => console.error('Error fetching meals:', error))
     }
-  },[categoryView, setMeals]);
-
-
+  }, [categoryView, setMeals])
 
   return (
     <div>
       <h6>Recipes</h6>
-        <MDBRow>
-          {}
-        </MDBRow>
+      <MDBRow>
+        {}
+      </MDBRow>
     </div>
   )
 }
 
-export default MealList;
+export default MealList

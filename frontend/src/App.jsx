@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
         </Routes>
         <Categories />
-        <MealList/>
+        <MealList />
       </BrowserRouter>
     </GlobalProvider>
   )
