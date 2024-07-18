@@ -8,6 +8,7 @@ import Navigation from './Components/NavBar'
 import Home from './Components/Home'
 import { GlobalProvider } from './Context/GlobalContext'
 import Categories from './Components/CategoriesSide'
+import MealList from './Components/MealList'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
         </Routes>
         <Categories />
+        <MealList/>
       </BrowserRouter>
     </GlobalProvider>
   )

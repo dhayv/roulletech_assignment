@@ -1,9 +1,10 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
 const Navigation = () => {
   return (
-    <Navbar bg='light' variant='light' expand='md'>
+    <Container>
+        <Navbar bg='light' variant='light' expand='md'>
       <Navbar.Brand href='#home'>Kangaroo</Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse>
@@ -14,6 +15,8 @@ const Navigation = () => {
       </Navbar.Collapse>
 
     </Navbar>
+    </Container>
+    
   )
 }
 

@@ -1,19 +1,22 @@
 import React, { createContext, useState } from 'react'
 
-export const GlobalContext = createContext()
+export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [categories, setCategories] = useState([])
-  const [recipes, setRecipesList] = useState('')
-  const [recipeDetails, setRecipeDetails] = useState('')
+  const [categories, setCategories] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [recipeDetails, setRecipeDetails] = useState('');
+  const [categoryView, setcategoryView] = useState('')
 
   const contextValues = {
     categories,
     setCategories,
-    recipes,
-    setRecipesList,
+    meals,
+    setMeals,
     recipeDetails,
-    setRecipeDetails
+    setRecipeDetails,
+    categoryView, 
+    setcategoryView,
   }
 
   return (
