@@ -21,9 +21,13 @@ jobs:
         uses: actions/setup-node@v4.0.3
         with:
           node-version: 20.12.1
+          
+      - name: List directory contents
+        run: ls -R
+        
       - name: Install dependencies
         run: |
-          cd roulletech_assignment/frontend
+          cd /frontend
           npm install
 
       - name: Build the frontend
