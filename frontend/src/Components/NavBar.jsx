@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 
 const Navigation = () => {
   const navigate = useNavigate()
@@ -17,9 +17,6 @@ const Navigation = () => {
           )}
           <LinkContainer to='/'>
             <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to='/categories'>
-            <Nav.Link>Categories</Nav.Link>
           </LinkContainer>
         </Nav>
       </Container>
