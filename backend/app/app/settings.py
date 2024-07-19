@@ -15,11 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECURE_SSL_REDIRECT = True
-
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -33,7 +28,7 @@ DEBUG = True
 AWS_S3_ENDPOINT_URL = 'https://s3.amazonaws.com'
 
 
-ALLOWED_HOSTS = ['Django-load-balancer-1592783408.us-east-1.elb.amazonaws.com', '127.0.0.1', 'localhost', 'recipemeal.site']
+ALLOWED_HOSTS = ['https://api.recipemeal.site', '44.203.118.125', '127.0.0.1', 'localhost',]
 
 
 REST_FRAMEWORK = {
@@ -74,7 +69,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://recipemeal.site"
+    "https://www.recipemeal.site"
 ]
 
 
