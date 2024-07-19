@@ -28,7 +28,7 @@ DEBUG = True
 AWS_S3_ENDPOINT_URL = 'https://s3.amazonaws.com'
 
 
-ALLOWED_HOSTS = ['https://api.recipemeal.site', '44.203.118.125', '127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['44.203.118.125', '127.0.0.1', 'localhost',]
 
 
 REST_FRAMEWORK = {
@@ -69,6 +69,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://www.recipemeal.site",
     "https://www.recipemeal.site"
 ]
 
