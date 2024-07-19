@@ -10,7 +10,7 @@ const Navigation = () => {
   return (
     <Navbar className='navbar-light' bg='light' variant='light'>
       <Container>
-        <Navbar.Brand onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Recipe Meals</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Hello Guys</Navbar.Brand>
         <Nav className='ml-auto'>
           {location.pathname !== '/' && (
             <Nav.Link onClick={() => navigate(-1)}>{'<- Back'}</Nav.Link>
