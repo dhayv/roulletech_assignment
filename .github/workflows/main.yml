@@ -31,7 +31,7 @@ jobs:
 
   deploy: 
     needs: build
-    runs-on: private-runner
+    runs-on: ec-2
     steps: 
       - name: Pull image from Docker Hub
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:latest
