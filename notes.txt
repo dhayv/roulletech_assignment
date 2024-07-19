@@ -1,0 +1,5 @@
+sudo nano /etc/nginx/sites-available/backend
+
+sudo nano /etc/systemd/system/backend.service
+
+sudo nano /etc/systemd/system/github-runner.service
