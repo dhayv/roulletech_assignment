@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <CategoryMenu />
-      <WelcomeMessage/>
+      <WelcomeMessage />
       <MealList />
 
     </>

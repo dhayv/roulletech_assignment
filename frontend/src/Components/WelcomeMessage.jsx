@@ -1,11 +1,11 @@
 // WelcomeMessage.js
-import React from 'react';
-import { Container, Card } from 'react-bootstrap';
+import React from 'react'
+import { Container, Card } from 'react-bootstrap'
 
 const WelcomeMessage = () => {
   return (
-    <Container className="text-center my-5">
-      <Card className="bg-dark text-white">
+    <Container className='text-center my-5'>
+      <Card className='bg-dark text-white'>
         <Card.Body>
           <Card.Title>Welcome to Recipe Meals</Card.Title>
           <Card.Text>
@@ -14,7 +14,7 @@ const WelcomeMessage = () => {
         </Card.Body>
       </Card>
     </Container>
-  );
-};
+  )
+}
 
-export default WelcomeMessage;
+export default WelcomeMessage

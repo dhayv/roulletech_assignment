@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import api from '../api'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { GlobalContext } from '../Context/GlobalContext'

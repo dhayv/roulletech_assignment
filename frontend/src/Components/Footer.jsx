@@ -54,11 +54,10 @@ const Footer = () => {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-      
 
         © 2024 Copyright:
         <a className='text-reset fw-bold' href='http://recipemeal.site/'>
-            Recipemeals
+          Recipemeals
         </a>
       </div>
     </MDBFooter>
